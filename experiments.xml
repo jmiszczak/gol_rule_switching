@@ -1,0 +1,69 @@
+<experiments>
+  
+  <experiment name="random-100" repetitions="20" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <timeLimit steps="200"/>
+    <metric>%living</metric>
+    <metric>entropy</metric>
+  
+    <enumeratedValueSet variable="synchronous">
+      <value value="true"/>
+      <value value="false"/>
+    </enumeratedValueSet>
+    
+    <enumeratedValueSet variable="deterministic-switch">
+      <value value="false"/>
+    </enumeratedValueSet>
+    
+    <enumeratedValueSet variable="init-life">
+      <value value="10"/>
+      <value value="20"/>
+      <value value="40"/>
+      <value value="60"/>
+    </enumeratedValueSet>
+
+    <steppedValueSet variable="second-threshold" first="3" step="1" last="8"/>
+
+    <steppedValueSet variable="rule-switch-prob" first="0" step="0.1" last="1"/>
+    
+    <enumeratedValueSet variable="world-size">
+      <value value="100"/>
+    </enumeratedValueSet>
+  
+  </experiment>
+
+  <experiment name="deterministic-100" repetitions="20" runMetricsEveryStep="true">
+    <setup>setup</setup>
+    <go>go</go>
+    <timeLimit steps="200"/>
+    <metric>%living</metric>
+    <metric>entropy</metric>
+    
+    <enumeratedValueSet variable="synchronous">
+      <value value="true"/>
+      <value value="false"/>
+    </enumeratedValueSet>
+    
+    <enumeratedValueSet variable="deterministic-switch">
+      <value value="true"/>
+    </enumeratedValueSet>
+    
+    <enumeratedValueSet variable="init-life">
+      <value value="10"/>
+      <value value="20"/>
+      <value value="40"/>
+      <value value="60"/>
+    </enumeratedValueSet>
+
+    <steppedValueSet variable="second-threshold" first="3" step="1" last="8"/>
+
+    <enumeratedValueSet variable="rule-switch-prob">
+      <value value="0"/>
+    </enumeratedValueSet>
+
+    <enumeratedValueSet variable="world-size">
+      <value value="100"/>
+    </enumeratedValueSet>
+  </experiment>
+</experiments>
