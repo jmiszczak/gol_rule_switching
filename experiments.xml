@@ -11,7 +11,7 @@
       <value value="false"/>
     </enumeratedValueSet>
     
-    <enumeratedValueSet variable="deterministic-switch">
+    <enumeratedValueSet variable="deterministic">
       <value value="false"/>
     </enumeratedValueSet>
     
@@ -34,14 +34,13 @@
     <go>go</go>
     <timeLimit steps="250"/>
     <metric>%living</metric>
-    <metric>entropy</metric>
     
     <enumeratedValueSet variable="synchronous">
       <value value="true"/>
       <value value="false"/>
     </enumeratedValueSet>
     
-    <enumeratedValueSet variable="deterministic-switch">
+    <enumeratedValueSet variable="deterministic">
       <value value="true"/>
     </enumeratedValueSet>
     
