@@ -1,11 +1,10 @@
 <experiments>
   
-  <experiment name="random-100" repetitions="20" runMetricsEveryStep="true">
+  <experiment name="random_realizations" repetitions="20" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
-    <timeLimit steps="200"/>
+    <timeLimit steps="250"/>
     <metric>%living</metric>
-    <metric>entropy</metric>
   
     <enumeratedValueSet variable="synchronous">
       <value value="true"/>
@@ -17,10 +16,7 @@
     </enumeratedValueSet>
     
     <enumeratedValueSet variable="init-life">
-      <value value="10"/>
-      <value value="20"/>
-      <value value="40"/>
-      <value value="60"/>
+      <value value="50"/>
     </enumeratedValueSet>
 
     <steppedValueSet variable="second-threshold" first="3" step="1" last="8"/>
@@ -28,15 +24,15 @@
     <steppedValueSet variable="rule-switch-prob" first="0" step="0.1" last="1"/>
     
     <enumeratedValueSet variable="world-size">
-      <value value="100"/>
+      <value value="64"/>
     </enumeratedValueSet>
   
   </experiment>
 
-  <experiment name="deterministic-100" repetitions="20" runMetricsEveryStep="true">
+  <experiment name="deterministic_realizations" repetitions="20" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
-    <timeLimit steps="200"/>
+    <timeLimit steps="250"/>
     <metric>%living</metric>
     <metric>entropy</metric>
     
@@ -50,10 +46,7 @@
     </enumeratedValueSet>
     
     <enumeratedValueSet variable="init-life">
-      <value value="10"/>
-      <value value="20"/>
-      <value value="40"/>
-      <value value="60"/>
+      <value value="50"/>
     </enumeratedValueSet>
 
     <steppedValueSet variable="second-threshold" first="3" step="1" last="8"/>
