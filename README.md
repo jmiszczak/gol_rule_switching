@@ -88,8 +88,8 @@ Date for the average number of living cells are calculate by `CalculateMeanLivin
 You need to compile `CalculateMeanLiving.java` first
 
 **Note:** BY default, 500 realizations are used fo averaging. This value can be
-*modified in `CalculateMeanLiving.java` file. 
+modified in `CalculateMeanLiving.java` file. 
 
 Ploting of the data is handled by `plot_living_average.py`.
 
-**Note:** Data from this experiment are saved in `living_data_500steps_100runs.csv` file. This should be configures in `Makefile` and in the plotting script `plot_living_average.py`.
+**Note:** Data from this experiment are saved in `living_data_250steps_200runs.csv` file. This should be configures in `Makefile` and in the plotting script `plot_living_average.py`.

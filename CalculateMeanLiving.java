@@ -7,6 +7,7 @@ import static java.lang.String.format;
 public class CalculateMeanLiving{
   // number of steps
   static int steps = 250;
+  static int runs = 200;
 
   // global parameters
 
@@ -27,7 +28,7 @@ public class CalculateMeanLiving{
 
       //out.println("world_size,init_life,rand,sync,deterministic_period,p,second_threshold,living");
       //for (int st = second_threshold; st<=9; st++) {
-      for (int runNo = 0; runNo<500; runNo++) {
+      for (int runNo = 0; runNo<runs; runNo++) {
         out.println(
             format("%d,%d,%s,%s,%d,%3.2f,%d,%7.4f",
               world_size, init_life, rand, sync, 
