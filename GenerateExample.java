@@ -73,15 +73,15 @@ public class GenerateExample {
       if (rand) {
         world_name += "_rand";
         world_name += format("_p%3.2f", rule_switch_prob);
-        world.command("set deterministic-switch false");
-        err.println("set deterministic-switch false");
+        world.command("set deterministic false");
+        err.println("set deterministic false");
 
         world.command(format("set rule-switch-prob %3.2f", rule_switch_prob)); 
         err.println(format("set rule-switch-prob %3.2f", rule_switch_prob)); 
 
       } else { 
-        world.command("set deterministic-switch true");
-        err.println("set deterministic-switch true");
+        world.command("set deterministic true");
+        err.println("set deterministic true");
 
         world.command(format("set deterministic-period %d", deterministic_period));
         err.println(format("set deterministic-period %d", deterministic_period));

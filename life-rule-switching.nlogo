@@ -50,7 +50,7 @@ end
 ;; calculate the updating rule
 ;;
 to  simulate-life
-  ifelse deterministic-switch [ ;; deterministic rule switching
+  ifelse deterministic [ ;; deterministic rule switching
     ifelse ticks mod deterministic-period = 0 [
       update-rule-modified
     ][ ;; ticks mod deterministic-period \= 0
@@ -264,7 +264,7 @@ SWITCH
 139
 synchronous
 synchronous
-1
+0
 1
 -1000
 
@@ -288,8 +288,8 @@ BUTTON
 495
 181
 528
-Play 500 times
-repeat 500 [go]
+Play 50 times
+repeat 50 [go]
 NIL
 1
 T
@@ -320,9 +320,9 @@ SWITCH
 155
 190
 188
-deterministic-switch
-deterministic-switch
-0
+deterministic
+deterministic
+1
 1
 -1000
 
@@ -335,7 +335,7 @@ PLOT
 step
 % of living cells
 0.0
-600.0
+60.0
 0.0
 100.0
 true
@@ -716,7 +716,7 @@ false
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
 @#$#@#$#@
-NetLogo 6.2.1
+NetLogo 6.3.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
