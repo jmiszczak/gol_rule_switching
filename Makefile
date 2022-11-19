@@ -1,9 +1,9 @@
-NL_VERSION=6.2.1
+NL_VERSION=6.3.0
 
 GENEX_CLASS = GenerateExample
 CALC_CLASS = CalculateMeanLiving
 
-CLASS_PATH = ${HOME}/Local/NetLogo/${NL_VERSION}/app/netlogo-${NL_VERSION}.jar
+CLASS_PATH = ${HOME}/Local/NetLogo/${NL_VERSION}/lib/app/netlogo-${NL_VERSION}.jar
 
 build:
 	javac -cp ${CLASS_PATH} ${GENEX_CLASS}.java
