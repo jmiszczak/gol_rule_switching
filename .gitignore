@@ -133,3 +133,6 @@ dmypy.json
 
 # PDF files with plots
 *.pdf
+
+# Compiled Java files
+*.class
