@@ -7,12 +7,13 @@ Created on Sun Sep 11 07:25:46 2022
 """
 
 #%% global packages
+import sys
 import pandas as pd
 import numpy as np
 
 import matplotlib as mpl
-# import matplotlib.colors as colors
-# import matplotlib.figure as figure
+import matplotlib.colors as colors
+import matplotlib.figure as figure
 
 mpl.rc('text', usetex=True)
 mpl.rc('font', family='serif')
@@ -22,9 +23,12 @@ from IPython.core.display import display
 
 #%%
 
-exp_desc = 'living_data_500steps_100runs'
-# exp_desc = 'living_data_250steps_500runs'
-#exp_desc = 'living_data_world128_250Steps_500runs'
+if len (sys.argv) > 1:
+  data_file = sys.argv[1]
+else:
+  data_file = 'living_data.csv'
+
+exp_desc = data_file[:-4] # remove prefix
 cols = ['rand', 'sync', 'p', 'second_threshold', 'living']
 data = pd.read_csv(exp_desc + '.csv', usecols = cols)
 
@@ -231,6 +235,6 @@ display(fig_rs)
 #     axs.set_yticklabels([])
 
 #%% save the firs plot
-fName = "plot_" + exp_desc + "_rand_sync.pdf"
+fName = "plots/plot_" + exp_desc + "_rand_sync.pdf"
 print("[INFO] Saving " + fName)
-fig_rs.savefig("plots/"+fName, format="pdf", bbox_inches='tight')
+fig_rs.savefig(fName, format="pdf", bbox_inches='tight')

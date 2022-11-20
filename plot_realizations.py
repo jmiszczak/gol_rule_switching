@@ -6,18 +6,23 @@ Created on Thu Mar 10 08:54:50 CET 2022
 @author: jam
 """
 
-#%%
-
+#%% global packages
+import sys
 import pandas as pd
 import numpy as np
 
 import matplotlib as mpl
-import matplotlib.pyplot as plt
 import matplotlib.colors as colors
+import matplotlib.figure as figure
 
 mpl.rc('text', usetex=True)
 mpl.rc('font', family='serif')
 mpl.rc('font', size=10)
+
+from IPython.core.display import display
+
+#%%
+# moving average - can be used for smoothing the plots
 
 def mav(x, w=100):
     return np.convolve(x, np.ones(w), 'valid') / w
@@ -138,8 +143,9 @@ for second_threshold in second_thresholds:
         put_legend=False
         
     fig.tight_layout()
+    display(fig)
+    
     fName = "plots/plot_"+ exp_desc +".pdf"
     fig.savefig(fName, format="pdf", bbox_inches = 'tight')
     print("[INFO] Saving " + fName)
     
-    display(fig)
