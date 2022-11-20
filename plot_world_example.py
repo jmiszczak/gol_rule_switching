@@ -60,6 +60,6 @@ axs.margins()
 fig.tight_layout()
 display(fig)
 
-fName = "plot_" + world_name.replace(".csv","") + ".pdf"
+fName = "plots/plot_" + world_name.replace(".csv","") + ".pdf"
 print("[INFO] Saving " + fName)
 fig.savefig(fName, format="pdf", bbox_inches='tight')
