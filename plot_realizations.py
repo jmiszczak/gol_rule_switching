@@ -141,6 +141,5 @@ for second_threshold in second_thresholds:
     fName = "plots/plot_"+ exp_desc +".pdf"
     fig.savefig(fName, format="pdf", bbox_inches = 'tight')
     print("[INFO] Saving " + fName)
-    fig.savefig(fName, format="pdf", bbox_inches='tight')
     
     display(fig)
