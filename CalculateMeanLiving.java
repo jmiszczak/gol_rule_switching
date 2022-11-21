@@ -5,14 +5,20 @@ import static java.lang.System.err;
 import static java.lang.String.format;
 
 public class CalculateMeanLiving{
+  /*
+   * Static variables used to redefined experiemnts.
+   */
   // number of steps
   static int steps = 250;
+  // number of runs
   static int runs = 200;
 
   // global parameters
 
   public static void main(String[] argv) {
-
+    /*
+     * Command line arguments.
+     */
     int world_size = Integer.parseInt(argv[0]);
     int init_life = Integer.parseInt(argv[1]);
     boolean rand = Boolean.parseBoolean(argv[2]);
@@ -21,7 +27,10 @@ public class CalculateMeanLiving{
     int deterministic_period = Integer.parseInt(argv[4]);
     double rule_switch_prob = Double.parseDouble(argv[5]);
     int second_threshold =  Integer.parseInt(argv[6]);
-
+    
+    /*
+    * Main loop. 
+    */
     HeadlessWorkspace world = HeadlessWorkspace.newInstance();
     try {
       world.open("life-rule-switching.nlogo");
