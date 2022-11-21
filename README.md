@@ -16,7 +16,7 @@ mode.
 
 Compilation and code runing is controlled by file `Makefile` in the main
 directory. This file should be modified to suit our NetLogo installation.
-In the provided `Makefile` it is assume the NetLogo is installed in
+In the provided `Makefile` it is assumes that NetLogo is installed in
 
     ~/Local/NetLogo/3.0.0
 
@@ -26,8 +26,8 @@ directory. It is also assumed that `java` and `javac` are in you PATH.
 
 ### Fianl configurations
 
-Sample configurations are produced using `GenerateExample.java` script. To compile this
-file run
+Sample configurations are produced using `GenerateExample.java` script. To
+compile this file run
 
     make
 
@@ -41,7 +41,7 @@ in the main directory. This will produce files `world*.csv` files, named accordi
  
 Ploting of the resulting data is handled by `plot_world_example.py` script. Running
 
-    plot_world_example.py word_data.csv
+    python plot_world_example.py word_data.csv
 
 will produce PDF file for visualizing data from the CSV file `world_data.csv`. 
 
@@ -87,8 +87,8 @@ Date for the average number of living cells are calculate by `CalculateMeanLivin
 
 You need to compile `CalculateMeanLiving.java` first
 
-**Note:** BY default, 500 realizations are used fo averaging. This value can be
-modified in `CalculateMeanLiving.java` file. 
+**Note:** BY default, 200 realizations are used fo averaging. This value can be
+modified in `CalculateMeanLiving.java` file by altering `steps` variable. 
 
 Ploting of the data is handled by `plot_living_average.py`.
 
