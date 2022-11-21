@@ -90,6 +90,6 @@ You need to compile `CalculateMeanLiving.java` first
 **Note:** BY default, 200 realizations are used fo averaging. This value can be
 modified in `CalculateMeanLiving.java` file by altering `steps` variable. 
 
-Ploting of the data is handled by `plot_living_average.py`.
+Ploting of the data is handled by `plot_living_average.py`, which accepts one argument with name of the data file.
 
 **Note:** Data from this experiment are saved in `living_data_250steps_200runs.csv` file. This should be configures in `Makefile` and in the plotting script `plot_living_average.py`.

@@ -12,10 +12,10 @@ build:
 
 
 realizations:
-	ln -sf run.sh deterministic_realizations.sh 
 	ln -sf run.sh random_realizations.sh 
-	./deterministic_realizations.sh
-	./random_realizations.sh
+	ln -sf run.sh deterministic_realizations.sh
+	bash random_realizations.sh
+	bash deterministic_realizations.sh
 
 genex:
 	parallel java -cp .:${CLASS_PATH} ${GENEX_CLASS} 64 50 {1} {2} 2 {3} {4} ::: true false ::: true false ::: 0.0 0.25 0.5 0.75 1.0 ::: `seq 4 8`

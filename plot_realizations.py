@@ -54,7 +54,7 @@ v = [
 #%%
 # selected example params
 init_life = 50
-second_thresholds = 5,6,8
+second_thresholds = 6,8
 put_legend=True
 
 # set man_n>1 to use the moving average
@@ -103,7 +103,7 @@ for second_threshold in second_thresholds:
         
        
         
-        for r in [12]: #iterate over realizations (just one case to show)
+        for r in [0]: #iterate over realizations (just one case to show)
             ed1_detr_sync_p = ed1_detr_sync.query("`[run number]` == {}".format(ed1_detr_sync_r[r]))[['[step]', '%living']].to_numpy()
             ed1_detr_async_p = ed1_detr_async.query("`[run number]` == {}".format(ed1_detr_async_r[r]))[['[step]', '%living']].to_numpy()
             

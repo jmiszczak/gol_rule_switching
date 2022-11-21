@@ -118,7 +118,7 @@ end
 ;; fraction of living cells
 ;;
 to-report %living
-  report ( count patches with [ pcolor = black] ) / ( count patches ) * 100
+  report 100 * ( count patches with [ pcolor = black] ) / ( count patches )
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -229,23 +229,6 @@ NIL
 NIL
 1
 
-BUTTON
-23
-446
-187
-479
-Clear
-clear-all\nask patches [ set pcolor white]
-NIL
-1
-T
-OBSERVER
-NIL
-C
-NIL
-NIL
-1
-
 MONITOR
 738
 269
@@ -264,7 +247,7 @@ SWITCH
 139
 synchronous
 synchronous
-0
+1
 1
 -1000
 
@@ -277,7 +260,7 @@ rule-switch-prob
 rule-switch-prob
 0
 1
-1.0
+0.5
 0.01
 1
 NIL
@@ -285,9 +268,9 @@ HORIZONTAL
 
 BUTTON
 23
-495
+447
 181
-528
+480
 Play 50 times
 repeat 50 [go]
 NIL
@@ -309,7 +292,7 @@ second-threshold
 second-threshold
 2
 9
-7.0
+8.0
 1
 1
 NIL
@@ -322,7 +305,7 @@ SWITCH
 188
 deterministic
 deterministic
-1
+0
 1
 -1000
 
