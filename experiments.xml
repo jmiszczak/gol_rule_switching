@@ -1,6 +1,6 @@
 <experiments>
   
-  <experiment name="random_realizations" repetitions="20" runMetricsEveryStep="true">
+  <experiment name="random_realizations" repetitions="1" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
     <timeLimit steps="250"/>
@@ -29,10 +29,10 @@
   
   </experiment>
 
-  <experiment name="deterministic_realizations" repetitions="20" runMetricsEveryStep="true">
+  <experiment name="deterministic_realizations" repetitions="1" runMetricsEveryStep="true">
     <setup>setup</setup>
     <go>go</go>
-    <timeLimit steps="250"/>
+    <timeLimit steps="100"/>
     <metric>%living</metric>
     
     <enumeratedValueSet variable="synchronous">
@@ -55,7 +55,7 @@
     </enumeratedValueSet>
 
     <enumeratedValueSet variable="world-size">
-      <value value="100"/>
+      <value value="64"/>
     </enumeratedValueSet>
   </experiment>
 </experiments>
