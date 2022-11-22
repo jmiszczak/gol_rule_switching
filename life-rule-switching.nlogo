@@ -149,10 +149,10 @@ ticks
 30.0
 
 BUTTON
-20
-345
-190
-378
+21
+304
+191
+337
 Setup world
 setup
 NIL
@@ -166,10 +166,10 @@ NIL
 1
 
 SLIDER
-18
-60
-189
-93
+17
+51
+188
+84
 init-life
 init-life
 0
@@ -196,10 +196,10 @@ NIL
 HORIZONTAL
 
 BUTTON
-19
-393
-98
-426
+20
+345
+99
+378
 Play life
 go
 NIL
@@ -213,10 +213,10 @@ NIL
 1
 
 BUTTON
-104
-392
-191
-425
+105
+344
+192
+377
 Loop
 go
 T
@@ -230,10 +230,10 @@ NIL
 1
 
 MONITOR
-738
-269
-839
-314
+624
+271
+725
+316
 % of living cells
 %living
 4
@@ -242,9 +242,9 @@ MONITOR
 
 SWITCH
 19
-106
-186
-139
+95
+190
+128
 synchronous
 synchronous
 1
@@ -253,9 +253,9 @@ synchronous
 
 SLIDER
 17
-242
-194
-275
+218
+189
+251
 rule-switch-prob
 rule-switch-prob
 0
@@ -267,10 +267,10 @@ NIL
 HORIZONTAL
 
 BUTTON
-23
-447
-181
-480
+18
+385
+188
+418
 Play 50 times
 repeat 50 [go]
 NIL
@@ -285,9 +285,9 @@ NIL
 
 SLIDER
 18
-290
+260
 190
-323
+293
 second-threshold
 second-threshold
 2
@@ -299,21 +299,21 @@ NIL
 HORIZONTAL
 
 SWITCH
-19
-155
-190
-188
+18
+138
+189
+171
 deterministic
 deterministic
-0
+1
 1
 -1000
 
 PLOT
-735
-10
-1035
-234
+625
+14
+925
+238
 % of living cells
 step
 % of living cells
@@ -329,9 +329,9 @@ PENS
 
 SLIDER
 18
-198
-193
-231
+179
+188
+212
 deterministic-period
 deterministic-period
 1
@@ -345,49 +345,53 @@ HORIZONTAL
 @#$#@#$#@
 ## WHAT IS IT?
 
-Conway's Game of Life: https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+This model implements a version of Game of Life cellular 2D automaton extended with the ability to alter the rules utilized by the cell during the evolution. Simple versions of random and deterministic mechanisms of rules selection are implemented. In both case, at each step, the cell can be updated according to one of the rules - the standard one and the alternative one. The standard rule is identical to the rule for dying due to overpopulation (Any live cell with four or more live neighbors dies, because of the  overpopulation). The alternative rule for threshold _r_ is: Any live cell with _r_ of more live neighbors dies, because of the  overpopulation.
 
-Both synchronous and asynchronous updating policies are implemented. Additionally, the model includes a possbility to alter the rule of the game by 
+Additionally, one can switch between synchronous and asynchronous state updating policy. In the synchronous update policy, corresponding to the standard version of GoL, the state of the lattice is updated globally at the end of each simulation step. In the asynchronous policy, the state of each agent is calculated and updated immediately. Thus, each simulation steps consists of the calculation of next state of the cell, and the update of the cell state. The order of cells is chosen randomly
 
 ## HOW IT WORKS
 
-Black cells are alive, white cells are dead.
+Game of Live is a 2D cellular automaton. Black color marks living cells, white cells are dead. In the basic version of the game - synchronous stat updating and single evolution rule - cells can become live or dead according to threshold on the number of living cells in their neighborhood.
 
-TODO: Extend this section, describe sync vs sycn, describe rule selection mechanisms.
+The following parameters of the model are available through the controls:
+
+* _world-size_ - size of the lattice used to run the simulation;
+* _init-life_ - percentage of living cells at the beginning of the simulation;
+* _synchronous_ - toggle between synchronous and asynchronous updating policy;
+* _deterministic_ - toggle between deterministic and random rule selection mechanism;
+* _deterministic-period_ - the number of iteration between the utilization of the alternative rule in the deterministic rule switching mechanism;
+* _rule-switch-prob_ - set the probability of utilizing an alternative rule in the random rule switching mechanism;
+* _second-threshold_ - threshold used in the second (alternative) rule used in the game;
 
 ## HOW TO USE IT
 
-Set the initial conditions and observer the evolution.
-
-TODO: Extend this section
+After setting the required parameters, use _Setup world_ button to initialize the simulation. To run the model ones, use _Play life_ button. _Loop_ button runs the game in a loop, and _Play 50 times_ runs 50 simulation cycles.
 
 ## THINGS TO NOTICE
 
-Some popular formation could occur in the case of synchronous or asynchronous updating. It is possible to switch between synchronous and asynchronous updating durinig the game to observe the changes in the behaviour.
+The formation of patterns and the stability of the evolution depends on the selection of parameters. 
 
-In a similar manner, in the case of random mechanism for selecting rules, it is possible to change the probability of switchin between the base rule and the alternative rule.
+Some popular formation could occur in the case of synchronous or asynchronous updating. It is possible to switch between synchronous and asynchronous updating during the game to observe the changes in the behavior.
+
+Similarly, in the case of random mechanism for selecting rules, it is possible to change the probability of switching between the base rule and the alternative rule.
 
 ## THINGS TO TRY
 
-One intersting modificaiton is the percentage of living celles at the begining of the game.
-
-Another thing to try is to chenage the treshold for dying of the cell.
+The most important element to try is to modify the threshold for dying due to the underpopulation.
 
 ## EXTENDING THE MODEL
 
-At the moment all patches are updated during each step. To explore the transition between synchronous and asynchronous policy, only a fraction of cell should update its state synchronously. This could be achieved by introducing new parameter defining the probability of synchronous updating.
+Currently, all patches are updated during each step. To explore the transition between synchronous and asynchronous policy, only a fraction of the cell should update its state synchronously. This could be achieved by introducing a new parameter defining the probability of synchronous updating.
 
 ## RELATED MODELS
-
-Many models in the NetLogo Models Library already implement this game.
-
-TODO: Be more specific, cite mdoels from the Models Library.
+Conway’s Game of Life, http://www.modelingcommons.org/browse/one_model/6948
 
 ## CREDITS AND REFERENCES
 
-Asynchronous cellular automaton, 	https://en.wikipedia.org/wiki/Asynchronous_cellular_automaton
+Conway's Game of Life, https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+Asynchronous cellular automaton, https://en.wikipedia.org/wiki/Asynchronous_cellular_automaton
 
-Model of the Game of Life with asynchronous updating was introduced in 
+A model of the Game of Life with asynchronous updating was introduced in 
 H.J. Blok, B. Bergersen, "Synchronous versus asynchronous updating in the “game of Life”", Phys. Rev. E 59, 3876 (1999), https://doi.org/10.1103/PhysRevE.59.3876
 
 1D cellular automata with random updating due to the noise were studied in 
