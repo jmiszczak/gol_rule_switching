@@ -1,15 +1,21 @@
+# 
+# adjust this according to your configuration
+#
 NL_VERSION=6.3.0
 
+# example generator
 GENEX_CLASS = GenerateExample
+
+# calculation of mean living cells
 CALCMEAN_CLASS = CalculateMeanLiving
 CALCMEAN_FILE = living_data_250steps_200runs.csv 
 
+# NetLog location
 CLASS_PATH = ${HOME}/Local/NetLogo/${NL_VERSION}/lib/app/netlogo-${NL_VERSION}.jar
 
 build:
 	javac -cp ${CLASS_PATH} ${GENEX_CLASS}.java
 	javac -cp ${CLASS_PATH} ${CALCMEAN_CLASS}.java
-
 
 realizations:
 	ln -sf run.sh random_realizations.sh 
