@@ -6,7 +6,7 @@ import static java.lang.String.format;
 
 public class CalculateMeanLiving{
   /*
-   * Static variables used to redefined experiemnts.
+   * Static variables used to redefined experiments.
    */
   // number of steps
   static int steps = 250;
@@ -35,8 +35,6 @@ public class CalculateMeanLiving{
     try {
       world.open("life-rule-switching.nlogo");
 
-      //out.println("world_size,init_life,rand,sync,deterministic_period,p,second_threshold,living");
-      //for (int st = second_threshold; st<=9; st++) {
       for (int runNo = 0; runNo<runs; runNo++) {
         out.println(
             format("%d,%d,%s,%s,%d,%3.2f,%d,%7.4f",
@@ -47,7 +45,6 @@ public class CalculateMeanLiving{
               )
             );
       }
-      //}
 
       world.dispose();
     } catch (Exception ex) {
@@ -63,7 +60,7 @@ public class CalculateMeanLiving{
 
     double living = 0.0;
 
-    //err.println("[INFO] restaring simulation!");
+    //err.println("[INFO] restarting simulation!");
 
     // name is build from the parsed values
     String world_name = new String();
