@@ -2,10 +2,18 @@ patches-own [
   next-pcolor ;; the next state is calculated using current pcolor
 ]
 
+globals [
+  living1k
+]
+
 ;; clear the board and create some life
 to setup
+  ;; standard setup
   clear-all
   reset-ticks
+
+  ;; data collected during the game
+  set living1k []
 
   ;; make the world with custom size
   resize-world 0 (world-size - 1) 0 (world-size - 1)
@@ -43,6 +51,7 @@ to go
     ]
   ]
 
+  update-living1k
   tick
 end
 
@@ -115,10 +124,36 @@ end
 ;;
 
 ;;
-;; fraction of living cells
+;; percentage of living cells
 ;;
 to-report %living
   report 100 * ( count patches with [ pcolor = black] ) / ( count patches )
+end
+
+;;
+;; fraction of living cells
+;;
+to-report living-fraction
+  report ( count patches with [ pcolor = black] ) / ( count patches )
+end
+
+;;
+;;
+;;
+to update-living1k
+  ;; add current vale of cooperators-fraction to the list cooperators1k
+  set living1k fput living-fraction living1k
+end
+
+;;
+;;
+;;
+to-report mean-living1k
+  ifelse ticks >= 1000 [
+    report mean ( sublist living1k 0 1000 )
+  ][
+    report -1
+  ]
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
@@ -305,7 +340,7 @@ SWITCH
 171
 deterministic
 deterministic
-1
+0
 1
 -1000
 
@@ -314,18 +349,18 @@ PLOT
 14
 925
 238
-% of living cells
+fraction of living cells
 step
-% of living cells
+fraction of living cells
 0.0
 60.0
 0.0
-100.0
+1.0
 true
 false
 "" ""
 PENS
-"default" 1.0 0 -10899396 true "" "plot %living"
+"default" 1.0 0 -10899396 true "" "plot living-fraction"
 
 SLIDER
 18
