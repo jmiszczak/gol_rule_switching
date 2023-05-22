@@ -99,7 +99,7 @@ public class GenerateConfigurations {
         world.command("setup");
 
         world.command(String.format("repeat %d [go]", steps));
-        world.command("export-world \"world" + "/configurations/" + world_name + format("_%04d",i) +".csv\"");
+        world.command("export-world \"configurations/world" + world_name + format("_%04d",i) +".csv\"");
 
         err.println("[INFO] Saving: " + "world" + world_name + ".csv");
 
