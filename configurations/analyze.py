@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
 
-
 #%%
 # data files
-golType = 'par6_05'
+golType = 'par6_p05'
 maxFn = 9
+worldSize = 32
 dataFiles = [ "{golType}_{fn:04d}.csv".format(golType=golType, fn=fn)  for fn in range(1,maxFn+1)]
 
 #%%
@@ -18,7 +18,7 @@ dataFiles = [ "{golType}_{fn:04d}.csv".format(golType=golType, fn=fn)  for fn in
 # read data from the first file
 data  = pd.read_csv(dataFiles[0],
                     skiprows = 15,
-                    nrows = 64*64,
+                    nrows = worldSize*worldSize,
                     usecols = ["pxcor", "pycor", "pcolor"])
 # convert colors
 data['pcolor'] = np.where(data['pcolor'] == 0, 1, 0)
@@ -30,17 +30,13 @@ for i, df in enumerate(dataFiles[1:]):
   # read data
   d  = pd.read_csv(df, 
                       skiprows = 15,
-                      nrows = 64*64,
+                      nrows = worldSize*worldSize,
                       usecols = ["pcolor"])
   # convert colors
   d['pcolor'] = np.where(d['pcolor'] == 0, 1, 0)
   d.rename({"pcolor": "s{:04d}".format(i+2)}, axis='columns', inplace=True)
   data = data.join(d)
 
-
-#%%
-maxx=data['x'].max()+1
-maxy=data['y'].max()+1
 
 #%% functions used in the analysis
 
@@ -50,7 +46,7 @@ def log0(x):
   else:
     return np.log2(x) 
 
-def prob(a,x,y):
+def prob(a,x,y,data):
   pidx = data.index[(data['x']==x) & (data['y']==y) ][0]
   pd = data[(data['x'] == x) & (data['y'] == y)]
   pdt = pd.drop(['x','y'], axis=1).transpose()
@@ -59,7 +55,9 @@ def prob(a,x,y):
   else:
     return 0
 
-def jointProb(a,b,x,y,dx,dy):
+def jointProb(a,b,x,y,dx,dy,data):
+  maxx=data['x'].max()+1
+  maxy=data['y'].max()+1
   pidx = data.index[(data['x']==x) & (data['y']==y) ][0]
   nidx = data.index[(data['x']==(x+dx)%maxx) &  (data['y']==(y+dy)%maxy) ][0]
   pd = data[(data['x'].isin([x,(x+dx)%maxy])) & (data['y'].isin([y,(y+dy)%maxy]))]
@@ -69,24 +67,32 @@ def jointProb(a,b,x,y,dx,dy):
   else:
     return 0
 
-
-def condProb(a,b,x,y,dx,dy):
-  if prob(b,(x+dx)%maxx,(y+dy)%maxy) > 0:
-    return jointProb(a,b,x,y,dx,dy)/prob(b,(x+dx)%maxx,(y+dy)%maxy)
+def condProb(a,b,x,y,dx,dy,data):
+  maxx=data['x'].max()+1
+  maxy=data['y'].max()+1
+  if prob(b,(x+dx)%maxx,(y+dy)%maxy,data) > 0:
+    return jointProb(a,b,x,y,dx,dy,data)/prob(b,(x+dx)%maxx,(y+dy)%maxy,data)
   else:
     return 0
 
-def mutEnt(x,y,dx,dy):
-  return -1*sum([jointProb(a,b,x,y,dx,dy)*log0(condProb(a,b,x,y,dx,dy)) for a in [0,1] for b in [0,1]])
+def mutEnt(x,y,dx,dy,data):
+  return -1*sum([jointProb(a,b,x,y,dx,dy,data)*log0(condProb(a,b,x,y,dx,dy,data)) for a in [0,1] for b in [0,1]])
 
 
-def avgMutEnt(x,y):
-  return 0.25*mutEnt(x,y,-1,0)+mutEnt(x,y,1,0)+mutEnt(x,y,0,-1)+mutEnt(x,y,0,1)
+def ptAvgMutEnt(x,y,data):
+  return 0.25*(mutEnt(x,y,-1,0,data)+mutEnt(x,y,1,0,data)+mutEnt(x,y,0,-1,data)+mutEnt(x,y,0,1,data))
 
-#%% sample runs
-res = 0
-for x in range(64):
-  for y in range(64):
-    res = res + avgMutEnt(x,y)
-  
-print(res)
+
+def avgMutEnt(data):
+  maxx=data['x'].max()+1
+  maxy=data['y'].max()+1
+  res = 0
+  for x in range(maxx):
+    for y in range(maxy):
+      res = res + ptAvgMutEnt(x,y,data)
+  res = res / (maxx*maxy)
+  return res
+
+file = open('{}.dat'.format(golType), 'w')
+file.write('{}:{}'.format(golType,avgMutEnt(data)))
+file.close()

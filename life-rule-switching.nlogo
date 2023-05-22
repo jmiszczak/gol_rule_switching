@@ -295,7 +295,7 @@ rule-switch-prob
 rule-switch-prob
 0
 1
-0.5
+0.1
 0.01
 1
 NIL
@@ -327,7 +327,7 @@ second-threshold
 second-threshold
 2
 9
-8.0
+6.0
 1
 1
 NIL
@@ -340,7 +340,7 @@ SWITCH
 171
 deterministic
 deterministic
-0
+1
 1
 -1000
 
