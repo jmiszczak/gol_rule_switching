@@ -1,11 +1,21 @@
+#!/usr/bin/env python
 import pandas as pd
 import numpy as np
+import sys
 
 #%%
-# data files
-golType = 'par6_p05'
-maxFn = 9
-worldSize = 32
+# description of the experiment
+golType = sys.argv[1] 
+
+# how many files read into the data frame
+# this depends on the number of available files
+maxFn = 100 
+
+# size of the grid
+# this is from the configuration of the experiment
+worldSize = 32 
+
+# list of data files available for the specified experiment
 dataFiles = [ "{golType}_{fn:04d}.csv".format(golType=golType, fn=fn)  for fn in range(1,maxFn+1)]
 
 #%%
@@ -93,6 +103,7 @@ def avgMutEnt(data):
   res = res / (maxx*maxy)
   return res
 
+#%%
 file = open('{}.dat'.format(golType), 'w')
-file.write('{}:{}'.format(golType,avgMutEnt(data)))
+file.write("{}:{}\n".format(golType,avgMutEnt(data)))
 file.close()
