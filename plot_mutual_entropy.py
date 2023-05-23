@@ -17,7 +17,7 @@ import matplotlib.figure as figure
 
 mpl.rc('text', usetex=True)
 mpl.rc('font', family='serif')
-mpl.rc('font', size=11)
+mpl.rc('font', size=10)
 
 from IPython.core.display import display
 
@@ -54,6 +54,7 @@ plot_marker[9] = 's'
 fig = mpl.figure.Figure(figsize=(6, 3))
 axsSync = fig.add_subplot(121)
 axsSync.set_ylim(0.2, 1.05)
+axsSync.set_title('random synchronous')
 axsSync.set_xlabel('probability')
 axsSync.set_ylabel('entropy')
 
@@ -79,6 +80,7 @@ axsSync.margins()
 axsAsync = fig.add_subplot(122)
 axsAsync.set_ylim(0.2, 1.05)
 axsAsync.set_xlabel('probability')
+axsAsync.set_title('random asynchronous')
 
 for st in [4,5,6,7,8]:
   axsAsync.plot(
