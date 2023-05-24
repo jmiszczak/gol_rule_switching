@@ -158,9 +158,9 @@ fig.tight_layout()
 display(fig)
 
 #%% save the firs plot
-fName = "plot_" + exp_desc + "_all.pdf"
+fName = "plots/plot_" + exp_desc + "_all.pdf"
 print("[INFO] Saving " + fName)
-fig.savefig("plots/"+fName, format="pdf", bbox_inches='tight')
+fig.savefig(fName, format="pdf", bbox_inches='tight')
 
 
 #%% plot all random and sync on one plot
@@ -180,7 +180,7 @@ plot_rs_marker[7] = 'x'
 plot_rs_marker[8] = 'D'
 plot_rs_marker[9] = 's'
 
-fig_rs = mpl.figure.Figure(figsize=(5.5, 3))
+fig_rs = mpl.figure.Figure(figsize=(6, 3))
 plot_rs_text = {}
 plot_rs_text[(True,True)] = 'random synchronous'
 plot_rs_text[(True,False)] = 'random asynchronous'

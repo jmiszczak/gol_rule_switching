@@ -28,7 +28,7 @@ probs = data[(data['sync']==1) & (data['st']==4)]['p'].to_numpy()
 ySync = {}
 yAsync = {}
 
-for st in [4,5,6,7,8]:
+for st in range(4,10):
   ySync[st] = data[(data['sync']==1) & (data['st']==st)]['mutent'].to_numpy()
   yAsync[st] = data[(data['sync']==0) & (data['st']==st)]['mutent'].to_numpy()
 
@@ -53,13 +53,13 @@ plot_marker[9] = 's'
 #%% first bunch of plots
 fig = mpl.figure.Figure(figsize=(6, 3))
 axsSync = fig.add_subplot(121)
-axsSync.set_ylim(0.2, 1.05)
+axsSync.set_ylim(-0.05, 1.05)
 axsSync.set_title('random synchronous')
 axsSync.set_xlabel('probability')
-axsSync.set_ylabel('entropy')
+axsSync.set_ylabel(r'average entropy $\tilde{C}$')
 
 
-for st in [4,5,6,7,8]:
+for st in range(4,10):
   axsSync.plot(
     probs,
     ySync[st],
@@ -67,7 +67,7 @@ for st in [4,5,6,7,8]:
     marker = plot_marker[st],
     fillstyle='none', 
     ms = 8,
-    label=str(st)
+    label=r'$r=$' + str(st)
     )
 
 axsSync.grid(True, linestyle=':', linewidth=0.25, c='k')
@@ -78,11 +78,11 @@ axsSync.margins()
 
 #%% first bunch of plots
 axsAsync = fig.add_subplot(122)
-axsAsync.set_ylim(0.2, 1.05)
+axsAsync.set_ylim(-0.05, 1.05)
 axsAsync.set_xlabel('probability')
 axsAsync.set_title('random asynchronous')
 
-for st in [4,5,6,7,8]:
+for st in range(4,10):
   axsAsync.plot(
     probs,
     yAsync[st],
@@ -90,7 +90,7 @@ for st in [4,5,6,7,8]:
     marker = plot_marker[st],
     fillstyle='none', 
     ms = 8,
-    label=str(st)
+    label=r'$r=$' + str(st)
     )
 
 axsAsync.grid(True, linestyle=':', linewidth=0.25, c='k')
