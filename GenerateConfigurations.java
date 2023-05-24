@@ -94,7 +94,7 @@ public class GenerateConfigurations {
       world.command(format("set second-threshold %d", second_threshold));
       err.println(format("set second-threshold %d", second_threshold));
       
-      for (int i=1;i<=100;i++) {
+      for (int i=1;i<=1000;i++) {
         // setup the world
         world.command("setup");
 

@@ -29,7 +29,7 @@ genex:
 	parallel java -cp .:${CLASS_PATH} ${GENEX_CLASS} 64 50 {1} {2} 2 {3} {4} ::: true false ::: true false ::: 0.0 0.25 0.5 0.75 1.0 ::: `seq 4 8`
 
 gencf:
-	parallel java -cp .:${CLASS_PATH} ${GENCF_CLASS} 32 50 {1} {2} 2 {3} {4} ::: true ::: true false ::: 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 ::: `seq 4 8`
+	parallel java -cp .:${CLASS_PATH} ${GENCF_CLASS} 32 50 {1} {2} 2 {3} {4} ::: true ::: true false ::: 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 ::: `seq 4 9`
 
 calcmean:
 	cp living_data.csv.tpl ${CALCMEAN_FILE}
