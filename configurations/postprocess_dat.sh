@@ -2,7 +2,7 @@
 
 # Note: skeleton for the post processing script
 # World size and initial population are fixed to match included examples
-datFile='analyze.dat'
+datFile='analyze_mutent.csv'
 echo 'sync,rand,p,st,mutent'
 cat $datFile | sed 's/world_size32_init50//g' | \
   sed 's/_sync/1,/' | \

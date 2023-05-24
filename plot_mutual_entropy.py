@@ -22,7 +22,7 @@ mpl.rc('font', size=10)
 from IPython.core.display import display
 
 #%% read and preprocess data
-data = pd.read_csv("configurations/analyze_mutent.dat")
+data = pd.read_csv("configurations/analyze_mutent.csv")
 probs = data[(data['sync']==1) & (data['st']==4)]['p'].to_numpy()
 
 ySync = {}
