@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/535613700.svg)](https://zenodo.org/badge/latestdoi/535613700)
+
 # gol_rule_switching
 
 Implementation of the Game of Life with rule switching.
