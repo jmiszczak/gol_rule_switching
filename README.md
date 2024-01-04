@@ -5,7 +5,11 @@ Implementation of the Game of Life with rule switching.
 ## About
 
 This repo contains model and scripts used to run numerical experiments for Game
-of Life with rule switching mechanisms. 
+of Life with rule switching mechanisms. The code was used in
+
+
+J.A. Miszczak, *Rule switching mechanisms in the Game of Life with synchronous and asynchronous updating policy*, Physica Scripta, 98, 115210 (2023). DOI:[10.1088/1402-4896/acfc6c](https://doi.org/10.1088/1402-4896/acfc6c) arXiv:[2310.05979](https://arxiv.org/abs/2310.05979)
+
 
 # Reproducing data
 
@@ -18,7 +22,7 @@ Code compilation and running is controlled by file `Makefile` in the main
 directory. This file should be modified to suit our NetLogo installation. In the
 provided `Makefile` it is assumed that NetLogo is installed in
 
-    ~/Local/NetLogo/3.0.0
+    ~/Local/NetLogo/6.3.0
 
 directory. It is also assumed that `java` and `javac` are in you `PATH`
 environment variable.
