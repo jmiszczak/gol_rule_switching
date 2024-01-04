@@ -12,6 +12,19 @@ of Life with rule switching mechanisms. The code was used in
 
 J.A. Miszczak, *Rule switching mechanisms in the Game of Life with synchronous and asynchronous updating policy*, Physica Scripta, 98, 115210 (2023). DOI:[10.1088/1402-4896/acfc6c](https://doi.org/10.1088/1402-4896/acfc6c) arXiv:[2310.05979](https://arxiv.org/abs/2310.05979)
 
+```
+@article{miszczak2023rule,
+	author = {Miszczak, J.A.},
+	title = {Rule switching mechanisms in the Game of Life with synchronous and asynchronous updating policy},
+	doi = {10.1088/1402-4896/acfc6c},
+	journal = {Physica Scripta}, 
+	volume = {98},
+	number = {11},
+	pages = {115210},
+	year = {2023},
+}
+
+```
 
 # Reproducing data
 
