@@ -37,7 +37,11 @@ Code compilation and running is controlled by file `Makefile` in the main
 directory. This file should be modified to suit our NetLogo installation. In the
 provided `Makefile` it is assumed that NetLogo is installed in
 
-    ~/Local/NetLogo/6.3.0
+    ~/Local/NetLogo/7.0.3
+
+or in
+    
+	~/Local/NetLogo/current
 
 directory. It is also assumed that `java` and `javac` are in you `PATH`
 environment variable.
