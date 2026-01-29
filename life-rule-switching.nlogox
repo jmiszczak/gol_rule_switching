@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<model version="NetLogo 7.0.0" snapToGrid="false">
+<model version="NetLogo 7.0.3" snapToGrid="false">
   <code><![CDATA[patches-own [
   next-pcolor ;; the next state is calculated using current pcolor
 ]
@@ -159,17 +159,7 @@ to-report mean-living1k
 end]]></code>
   <widgets>
     <view x="210" wrappingAllowedX="true" y="10" frameRate="30.0" minPycor="0" height="354" showTickCounter="true" patchSize="7.0" fontSize="10" wrappingAllowedY="true" width="354" tickCounterLabel="ticks" maxPycor="49" updateMode="1" maxPxcor="49" minPxcor="0"></view>
-    <button x="21" actionKey="S" y="403" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="170" display="Setup world">setup</button>
-    <slider x="17" step="1" y="68" max="100" width="171" display="init-life" height="50" min="0" direction="Horizontal" default="50.0" variable="init-life"></slider>
-    <slider x="18" step="1" y="12" max="300" width="172" display="world-size" height="50" min="10" direction="Horizontal" default="50.0" variable="world-size"></slider>
-    <button x="20" actionKey="P" y="451" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="79" display="Play life">go</button>
-    <button x="105" actionKey="F" y="450" height="40" disableUntilTicks="false" forever="true" kind="Observer" width="87" display="Loop">go</button>
     <monitor x="624" precision="4" y="271" height="60" fontSize="11" width="101" display="% of living cells">%living</monitor>
-    <switch x="19" y="129" height="40" on="false" variable="synchronous" width="171" display="synchronous"></switch>
-    <slider x="17" step="0.01" y="283" max="1" width="172" display="rule-switch-prob" height="50" min="0" direction="Horizontal" default="0.1" variable="rule-switch-prob"></slider>
-    <button x="18" actionKey="T" y="498" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="170" display="Play 50 times">repeat 50 [go]</button>
-    <slider x="18" step="1" y="342" max="9" width="172" display="second-threshold" height="50" min="2" direction="Horizontal" default="6.0" variable="second-threshold"></slider>
-    <switch x="18" y="179" height="40" on="false" variable="deterministic" width="171" display="deterministic"></switch>
     <plot x="625" autoPlotX="true" yMax="1.0" autoPlotY="true" yAxis="fraction of living cells" y="14" xMin="0.0" height="224" legend="false" xMax="60.0" yMin="0.0" width="300" xAxis="step" display="fraction of living cells">
       <setup></setup>
       <update></update>
@@ -178,7 +168,17 @@ end]]></code>
         <update>plot living-fraction</update>
       </pen>
     </plot>
-    <slider x="18" step="1" y="227" max="100" width="170" display="deterministic-period" height="50" min="1" direction="Horizontal" default="2.0" variable="deterministic-period"></slider>
+    <button x="17" actionKey="P" y="451" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="79" display="Play life">go</button>
+    <button x="17" actionKey="T" y="498" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="172" display="Play 50 times">repeat 50 [go]</button>
+    <slider x="17" step="1" y="342" max="9" width="172" display="second-threshold" height="50" min="2" direction="Horizontal" default="6.0" variable="second-threshold"></slider>
+    <slider x="17" step="0.01" y="283" max="1" width="172" display="rule-switch-prob" height="50" min="0" direction="Horizontal" default="0.4" variable="rule-switch-prob"></slider>
+    <slider x="17" step="1" y="227" max="100" width="172" display="deterministic-period" height="50" min="1" direction="Horizontal" default="45.0" variable="deterministic-period"></slider>
+    <switch x="17" y="179" height="40" on="false" variable="deterministic" width="172" display="deterministic"></switch>
+    <switch x="17" y="129" height="40" on="false" variable="synchronous" width="172" display="synchronous"></switch>
+    <slider x="17" step="1" y="68" max="100" width="172" display="init-life" height="50" min="0" direction="Horizontal" default="50.0" variable="init-life"></slider>
+    <slider x="17" step="1" y="12" max="300" width="172" display="world-size" height="50" min="10" direction="Horizontal" default="50.0" variable="world-size"></slider>
+    <button x="17" actionKey="S" y="403" height="40" disableUntilTicks="false" forever="false" kind="Observer" width="172" display="Setup world">setup</button>
+    <button x="104" actionKey="F" y="450" height="40" disableUntilTicks="false" forever="true" kind="Observer" width="87" display="Loop">go</button>
   </widgets>
   <info><![CDATA[## WHAT IS IT?
 
